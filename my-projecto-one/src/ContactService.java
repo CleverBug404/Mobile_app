@@ -42,4 +42,8 @@ public class ContactService {
 	public void updatePhoneNumber(String id, String phoneNumber) throws Exception {
 		searchForContact(id).updatePhoneNumber(phoneNumber);
 	}
+	//Update Address by ID and Address
+	public void updateAdress(String id, String address) throws Exception {
+		searchForContact(id).updateAddress(address);
+	}
 }
