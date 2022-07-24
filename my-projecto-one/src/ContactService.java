@@ -46,4 +46,6 @@ public class ContactService {
 	public void updateAdress(String id, String address) throws Exception {
 		searchForContact(id).updateAddress(address);
 	}
+	//Get the list of contacts
+	protected List<Contact> getContactList(){return contactList;}
 }
