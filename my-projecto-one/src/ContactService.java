@@ -48,4 +48,22 @@ public class ContactService {
 	}
 	//Get the list of contacts
 	protected List<Contact> getContactList(){return contactList;}
+	
+	//new Contact with all parameters 
+	public void newContact(String firstName) {
+		Contact contact = new Contact(newUniqueID(), firstName);
+		contactList.add(contact);
+	}
+	public void newContact(String firstName, String lastName) {
+		Contact contact = new Contact(newUniqueID(), firstName, lastName);
+		contactList.add(contact);
+	}
+	public void newContact(String firstName, String lastName, String phoneNumber) {
+		Contact contact = new Contact(newUniqueID(), firstName, lastName, phoneNumber);
+		contactList.add(contact);
+	}
+	public void newContact(String firstName, String lastName, String phoneNumber, String address) {
+		Contact contact = new Contact(newUniqueID(), firstName, lastName, phoneNumber, address);
+		contactList.add(contact);
+	}
 }
