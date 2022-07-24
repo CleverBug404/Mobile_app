@@ -30,4 +30,8 @@ public class ContactService {
 	public void deleteContact(String id) throws Exception{
 		contactList.remove(searchForContact(id));
 	}
+	//Update first Name by ID and name
+	public void updateFirstName(String id, String firstName) throws Exception {
+		searchForContact(id).updateFirstName(firstName);
+	}
 }
