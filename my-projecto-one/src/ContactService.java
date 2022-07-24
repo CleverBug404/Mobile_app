@@ -6,8 +6,13 @@ public class ContactService {
 	private String uniqueID;
 	private List<Contact> contactList = new ArrayList<>();
 	
-	{
-		// assigns a unique ID of exactly 10 char
-		uniqueID = UUID.randomUUID().toString().substring(0,10);
+	//Generate a UniqueID
+	private String newUniqueID() {
+		return uniqueID = UUID.randomUUID().toString().substring(0,10);
+	}
+	//add new contact
+	public void newContact() {
+		Contact contact = new Contact(newUniqueID());
+		contactList.add(contact);
 	}
 }
