@@ -73,6 +73,8 @@ public class Contact {
 			throw new IllegalArgumentException("The address field needs to be populated");
 		} else if (address.length() > addressSize) {
 			throw new IllegalArgumentException("The address cannot be more than " + addressSize + " characters");
+		} else {
+			this.address = address;
 		}
 	}
 	
