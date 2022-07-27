@@ -15,7 +15,7 @@ class ContactTest {
 		lastNameTest ="Blades";
 		phoneNumberTest ="7867736495";
 		addressTest ="3322 Olympic Drive Alvion";
-		longContactID = "112233445566778899";
+		longContactID = "12345678900";
 		longFirstNameTest ="TheresaRosalia";
 		longLastNameTest ="TheNightOfSpades";
 		longPhoneNumberTest ="77733389651";
@@ -87,6 +87,25 @@ class ContactTest {
 				() -> assertEquals(lastNameTest ,contact.getLastName()),
 				() -> assertNotNull(phoneNumberTest, contact.getPhoneNumber()),
 				() -> assertNotNull(addressTest ,contact.getAddress())
+				);
+	}
+	@Test
+	void updateContactID() {
+		Contact contact = new Contact();
+		contact.updateContactID(contactID);
+		assertAll("update contactID",
+				() -> assertEquals(contactID, contact.getContactID()),
+	            () -> assertThrows(IllegalArgumentException.class, () -> contact.updateContactID(null)),
+	            () -> assertThrows(IllegalArgumentException.class, () -> contact.updateContactID(longContactID)));
+	}
+	@Test
+	void updateContactFirstName() {
+		Contact contact = new Contact();
+		contact.updateFirstName(firstNameTest);
+		assertAll("update contactFirstName",
+				() -> assertEquals(firstNameTest, contact.getFirstName()),
+				() -> assertThrows(IllegalArgumentException.class, () -> contact.updateFirstName(null)),
+				() -> assertThrows(IllegalArgumentException.class, () -> contact.updateFirstName(longFirstNameTest))
 				);
 	}
 }
