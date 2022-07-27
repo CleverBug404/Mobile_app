@@ -118,4 +118,14 @@ class ContactTest {
 				() -> assertThrows(IllegalArgumentException.class, () -> contact.updateLastName(longLastNameTest))
 				);
 	}
+	@Test
+	void updateContactPhoneNumber() {
+		Contact contact = new Contact();
+		contact.updatePhoneNumber(phoneNumberTest);
+		assertAll("update contactPhoneNumber",
+				() -> assertEquals(phoneNumberTest, contact.getPhoneNumber()),
+				() -> assertThrows(IllegalArgumentException.class, () -> contact.updatePhoneNumber(null)),
+				() -> assertThrows(IllegalArgumentException.class, () -> contact.updatePhoneNumber(longPhoneNumberTest))
+				);
+	}
 }
