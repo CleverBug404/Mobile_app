@@ -12,6 +12,7 @@ public class Task {
 		taskDescription = defaultValue;
 	}
 	
+	//getters 
 	public final String getTaskID() {
 		return taskID;
 	}
@@ -22,5 +23,4 @@ public class Task {
 		return taskDescription;
 	}
 	
-
 }
