@@ -49,6 +49,21 @@ public class Task {
 	}
 	
 	//defining task object
+	Task(String taskID){
+		checkTaskID(taskID);
+		taskName = defaultValue;
+		taskDescription = defaultValue;
+	}
 	
+	Task(String taskID, String taskName){
+		checkTaskID(taskID);
+		setTaskName(taskName);
+		taskDescription = defaultValue;
+	}
+	Task(String taskID, String taskName, String taskDescription){
+		checkTaskID(taskID);
+		setTaskName(taskName);
+		setTaskDescription(taskDescription);
+	}
 
 }
