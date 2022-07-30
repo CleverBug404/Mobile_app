@@ -118,4 +118,12 @@ class ContactServiceTest {
 		assertThrows(IllegalArgumentException.class,() -> service.updateAdress(service.getContactList().get(0).getContactID(), null));
 		assertThrows(Exception.class, () -> service.updateAdress(contactID, addressTest));
 	}
+	
+	@Test
+	void deleteContactTest() {
+		ContactService service = new ContactService();
+		service.newContact();
+		assertThrows(Exception.class, () -> service.deleteContact(contactID));
+		assertAll(()-> service.deleteContact(service.getContactList().get(0).getContactID()));
+	}
 }
