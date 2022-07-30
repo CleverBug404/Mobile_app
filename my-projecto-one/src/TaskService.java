@@ -49,4 +49,8 @@ public class TaskService {
 	public void updateDescription(String id, String description) throws Exception {
 		searchForTask(id).setTaskDescription(description);
 	}
+	
+	public List<Task> getTaskList(){
+		return taskList;
+	}
 }
