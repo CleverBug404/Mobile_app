@@ -38,7 +38,7 @@ public class ContactService {
 	public void updateLastName(String id, String lastName) throws Exception {
 		searchForContact(id).updateLastName(lastName);
 	}
-	//Update phone numner by ID and phone#
+	//Update phone number by ID and phone#
 	public void updatePhoneNumber(String id, String phoneNumber) throws Exception {
 		searchForContact(id).updatePhoneNumber(phoneNumber);
 	}
