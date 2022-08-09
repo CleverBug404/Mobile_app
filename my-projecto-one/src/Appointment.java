@@ -1,6 +1,7 @@
 import java.util.Date;
 
 public class Appointment {
+	//default values
 	final private byte Appointment_ID_l;
 	final private byte Appointment_Desc_l;
 	final private String DEFAULT;
