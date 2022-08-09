@@ -31,7 +31,7 @@ public class Appointment {
 			this.appointmentId = id;
 		}
 	}
-	public String getAppointment() {
+	public String getAppointmentID() {
 		return appointmentId;
 	}
 	
