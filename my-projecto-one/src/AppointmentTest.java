@@ -27,9 +27,43 @@ class AppointmentTest {
 				() -> assertNotNull(appointment.getAppointmentDate()),
 				() -> assertNotNull(appointment.getDescription())
 				);
-		
-		
-				
-				
+	}
+	
+	@Test 
+	void testAppointmentID() {
+		Appointment appointment = new Appointment(appointmentID);
+		assertAll("Constructor ID",
+				() -> assertEquals(appointmentID, appointment.getAppointmentID()),
+				() -> assertNotNull(appointment.getAppointmentDate()),
+				() -> assertNotNull(appointment.getDescription())
+				);
+	}
+	@Test
+	void testAppointmentDate() {
+		Appointment appointment = new Appointment(appointmentID, appointmentDate);
+		assertAll("Constructor  Date",
+				()-> assertEquals(appointmentID, appointment.getAppointmentID()),
+				()-> assertEquals(appointmentDate, appointment.getAppointmentDate()),
+				()-> assertNotNull(appointment.getDescription())
+				);
+	}
+	@Test
+	void testAppointmentDescription() {
+		Appointment appointment = new Appointment(appointmentID, appointmentDate, appointmentDescription);
+		assertAll("Constructor  Description",
+				()-> assertEquals(appointmentID, appointment.getAppointmentID()),
+				()-> assertEquals(appointmentDate, appointment.getAppointmentDate()),
+				()-> assertEquals(appointmentDescription,appointment.getDescription())
+				);
+		}
+	@Test
+	void testAppointmentUpdateAppointmentID() {
+		Appointment appointment = new Appointment();
+		appointment.updateAppointmentId(appointmentID);
+		assertAll("Update appointment ID",
+				()-> assertEquals(appointmentID, appointment.getAppointmentID()),
+				() -> assertThrows(IllegalArgumentException.class, () -> appointment.updateAppointmentId(null))
+				);
 	}
 }
+

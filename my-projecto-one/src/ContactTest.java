@@ -95,8 +95,8 @@ class ContactTest {
 		contact.updateContactID(contactID);
 		assertAll("update contactID",
 				() -> assertEquals(contactID, contact.getContactID()),
-	            () -> assertThrows(IllegalArgumentException.class, () -> contact.updateContactID(null)),
-	            () -> assertThrows(IllegalArgumentException.class, () -> contact.updateContactID(longContactID)));
+	   () -> assertThrows(IllegalArgumentException.class, () -> contact.updateContactID(null)),
+	   () -> assertThrows(IllegalArgumentException.class, () -> contact.updateContactID(longContactID)));
 	}
 	@Test
 	void updateContactFirstName() {
