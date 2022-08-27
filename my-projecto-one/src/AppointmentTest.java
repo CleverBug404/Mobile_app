@@ -62,7 +62,7 @@ class AppointmentTest {
 		appointment.updateAppointmentId(appointmentID);
 		assertAll("Update appointment ID",
 				()-> assertEquals(appointmentID, appointment.getAppointmentID()),
-				() -> assertThrows(IllegalArgumentException.class, () -> appointment.updateAppointmentId(null))
+				() -> assertThrows(IllegalArgumentException.class, () -> appointment.updateAppointmentId(null)).
 				);
 	}
 }
