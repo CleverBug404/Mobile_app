@@ -1,3 +1,4 @@
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Date;
@@ -10,13 +11,15 @@ import org.junit.jupiter.api.Test;
 
 class AppointmentTest {
 	
-	protected String appointmentID, appointmentDescription;
+	protected String appointmentID, appointmentDescription, longAppointmentID, longAppointmentDescription;
 	protected Date appointmentDate;
 	@BeforeEach
 	void setUp() {				
 		appointmentID = "DkZ31p";
 		appointmentDescription = "Go to the dentist";
 		appointmentDate = new Date();
+		longAppointmentID = "12345678901";
+		longAppointmentDescription = "0123456789asdfghjklz1234567890asdfghjklz1234567890.";
 	}
 	
 	@Test
@@ -61,9 +64,30 @@ class AppointmentTest {
 		Appointment appointment = new Appointment();
 		appointment.updateAppointmentId(appointmentID);
 		assertAll("Update appointment ID",
-				()-> assertEquals(appointmentID, appointment.getAppointmentID()),
-				() -> assertThrows(IllegalArgumentException.class, () -> appointment.updateAppointmentId(null))
+				() -> assertEquals(appointmentID, appointment.getAppointmentID()),
+				() -> assertThrows(IllegalArgumentException.class, () -> appointment.updateAppointmentId(null)),
+				() -> assertThrows(IllegalArgumentException.class, () -> appointment.updateAppointmentId(longAppointmentID))
+				);
+	}
+	@Test
+	void testAppointmentUpdateDate() {
+		Appointment appointment = new Appointment();
+		appointment.updateDate(appointmentDate);
+		assertAll("Update appointment Date",
+				()-> assertEquals(appointmentDate, appointment.getAppointmentDate()),
+				()-> assertThrows(IllegalArgumentException.class, () -> appointment.updateDate(null))
+				);
+	}
+	@Test
+	void testAppointmentUpdateDescription() {
+		Appointment appointment = new Appointment();
+		appointment.updateDescription(appointmentDescription);
+		assertAll("Update appointment Description",
+				()-> assertEquals(appointmentDescription, appointment.getDescription()),
+				()-> assertThrows(IllegalArgumentException.class, ()-> appointment.updateDescription(null)),
+				()-> assertThrows(IllegalArgumentException.class, ()-> appointment.updateDescription(longAppointmentDescription))
 				);
 	}
 }
+
 
